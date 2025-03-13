@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-void getFile () {
+void printFileToScreen () {
   std::ifstream targetFile{"/etc/hostname"};
   // Error handling for not being able to open.
   if (!targetFile) {
@@ -16,12 +16,8 @@ void getFile () {
   }
 }
 
-void printToScreen() {
-
-}
-
 int main (int argc, char *argv[]) {
-  getFile(); 
+  printFileToScreen();
   return 0;
 }
 
