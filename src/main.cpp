@@ -4,8 +4,8 @@
 #include <string>
 
 struct File {
-  std::string filePath{};
   std::string title{};
+  std::string filePath{};
   
   void printFileToScreen () {
     std::ifstream targetFile{filePath};
@@ -26,9 +26,9 @@ struct File {
 
 int main (int argc, char *argv[]) {
   // Hostname object build from File class
-  File hostname {"/etc/hostname", "Hostname:"};
+  File hostname {"Hostname:","/etc/hostname"};
   hostname.printFileToScreen();
-  File version {"/proc/version", "Version:"};
+  File version {"Version:","/proc/version"};
   version.printFileToScreen();
   return 0;
 }
