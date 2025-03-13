@@ -5,6 +5,7 @@
 
 struct File {
   std::string filePath{};
+  std::string title{};
   
   void printFileToScreen () {
     std::ifstream targetFile{filePath};
@@ -14,6 +15,9 @@ struct File {
       std::exit(1);
     }
     std::string strInput{};
+    // Print Title
+    std::cout << title << " ";
+    // Print file contents
     while (std::getline(targetFile, strInput)) {
       std::cout << strInput << "\n";
     }
@@ -22,9 +26,9 @@ struct File {
 
 int main (int argc, char *argv[]) {
   // Hostname object build from File class
-  File hostname {"/etc/hostname"};
+  File hostname {"/etc/hostname", "Hostname:"};
   hostname.printFileToScreen();
-  File version {"/proc/version"};
+  File version {"/proc/version", "Version:"};
   version.printFileToScreen();
   return 0;
 }
