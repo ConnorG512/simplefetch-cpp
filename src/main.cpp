@@ -24,6 +24,8 @@ int main (int argc, char *argv[]) {
   // Hostname object build from File class
   File hostname {"/etc/hostname"};
   hostname.printFileToScreen();
+  File version {"/proc/version"};
+  version.printFileToScreen();
   return 0;
 }
 
