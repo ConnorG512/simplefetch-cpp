@@ -3,8 +3,8 @@
 #include <iostream>
 #include <string>
 
-class File {
-  std::string filePath;
+struct File {
+  std::string filePath{};
   
   void printFileToScreen () {
     std::ifstream targetFile{filePath};
@@ -22,6 +22,9 @@ class File {
 
 
 int main (int argc, char *argv[]) {
+  // Hostname object build from File class
+  File hostname {"/etc/hostname"};
+  hostname.printFileToScreen();
   return 0;
 }
 
