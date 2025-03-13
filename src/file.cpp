@@ -10,7 +10,12 @@ class File {
     File() {
       title = "undefined";
       filePath = "undefined";
-    } 
+    }
+    virtual void init(std::string categoryTitle, std::string pathToFile) {
+      title = categoryTitle;
+      filePath = pathToFile;
+    }
+
     void printTitleToScreen() {
     std::cout << title << " ";
     }
@@ -24,8 +29,9 @@ class File {
       std::string strInput{};
       // Print file contents
       while (std::getline(targetFile, strInput)) {
-        std::cout << strInput << "\n"; 
+        std::cout << strInput << "\n";
       }
+      targetFile.close();
     }
 };
 
@@ -36,6 +42,11 @@ class FileByWord : public File {
     
     FileByWord() : File() {
       fileIndex = 0;
+    }
+    virtual void init(std::string categoryTitle, std::string pathToFile, int wordIndex) {
+      title = categoryTitle;
+      filePath = pathToFile;
+      fileIndex = wordIndex;
     }
 
     virtual void printFileToScreen () override {
