@@ -11,7 +11,7 @@ void getFile () {
     std::exit(1);
   }
   std::string strInput{};
-  while (targetFile >> strInput) {
+  while (std::getline(targetFile, strInput)) {
     std::cout << strInput << "\n";
   }
 }
