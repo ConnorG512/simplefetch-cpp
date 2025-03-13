@@ -20,7 +20,6 @@ struct File {
   }
 };
 
-
 int main (int argc, char *argv[]) {
   // Hostname object build from File class
   File hostname {"/etc/hostname"};
