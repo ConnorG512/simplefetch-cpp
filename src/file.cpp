@@ -5,7 +5,8 @@
 struct File {
   std::string title{};
   std::string filePath{};
-  
+  int fileIndex;
+
   void printTitleToScreen() {
     std::cout << title << " ";
   }
@@ -18,8 +19,12 @@ struct File {
     }
     std::string strInput{};
     // Print file contents
-    while (std::getline(targetFile, strInput)) {
-      std::cout << strInput << "\n";
+    int index = 0;
+    while (targetFile >> strInput) {
+      if (index == fileIndex) {
+        std::cout << strInput << "\n";
+      }
+      index ++;
     }
   }
 };

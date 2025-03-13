@@ -3,11 +3,11 @@
 #include "file.cpp"
 
 int main (int argc, char *argv[]) {
-  File hostname {"Hostname:","/etc/hostname"};
+  File hostname {"Hostname:","/etc/hostname",0};
   hostname.printTitleToScreen(); 
   hostname.printFileToScreen();
 
-  File version {"Version:","/proc/version"};
+  File version {"Version:","/proc/version",2};
   version.printTitleToScreen();
   version.printFileToScreen();
   return 0;
