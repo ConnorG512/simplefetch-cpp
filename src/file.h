@@ -8,8 +8,9 @@
 class File {
   private:
     std::string m_title{};
-  public:
+  protected:
     std::string m_filePath{};
+  public:
     File(std::string title, std::string filePath);
     
     // Prints the category title to the screen eg: "Hostname:" "Kernel:". 
