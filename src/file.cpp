@@ -4,23 +4,17 @@
 
 class File {
   public:
-    std::string title{};
-    std::string filePath{};
+    std::string m_title{};
+    std::string m_filePath{};
 
-    File() {
-      title = "undefined";
-      filePath = "undefined";
+    File(std::string title, std::string filePath)
+      : m_title { title }, m_filePath {filePath} {
     }
-    virtual void init(std::string categoryTitle, std::string pathToFile) {
-      title = categoryTitle;
-      filePath = pathToFile;
-    }
-
     void printTitleToScreen() {
-    std::cout << title << " ";
+    std::cout << m_title << " ";
     }
     virtual void printFileToScreen () {
-      std::ifstream targetFile{filePath};
+      std::ifstream targetFile{m_filePath};
       // Error handling for not being able to open.
       if (!targetFile) {
         std::cerr << "Failed to open file!";
@@ -38,19 +32,13 @@ class File {
 
 class FileByWord : public File {
   public:
-    int fileIndex;
+    int m_fileIndex;
     
-    FileByWord() : File() {
-      fileIndex = 0;
+    FileByWord(std::string title, std::string filePath, int fileIndex)
+      : File(title, filePath), m_fileIndex { fileIndex } {
     }
-    virtual void init(std::string categoryTitle, std::string pathToFile, int wordIndex) {
-      title = categoryTitle;
-      filePath = pathToFile;
-      fileIndex = wordIndex;
-    }
-
     virtual void printFileToScreen () override {
-      std::ifstream targetFile{filePath};
+      std::ifstream targetFile{m_filePath};
       // Error handling for not being able to open.
       if (!targetFile) {
         std::cerr << "Failed to open file!";
@@ -60,7 +48,7 @@ class FileByWord : public File {
       // Print file contents
       int index = 0;
       while (targetFile >> strInput) {
-        if (index == fileIndex) {
+        if (index == m_fileIndex) {
           std::cout << strInput << "\n";
         }
         index ++;
