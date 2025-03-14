@@ -3,7 +3,7 @@
 #include <iostream>
 #include <ostream>
 
-#include "file.cpp"
+#include "file.h"
 
 int main (int argc, char *argv[]) {
   std::cout << "\033[96m---USER:\033[0m" << std::endl;
