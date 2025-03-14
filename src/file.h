@@ -6,10 +6,10 @@
 #include <string>
 
 class File {
-  public:
+  private:
     std::string m_title{};
+  public:
     std::string m_filePath{};
-
     File(std::string title, std::string filePath);
     
     // Prints the category title to the screen eg: "Hostname:" "Kernel:". 
@@ -19,8 +19,9 @@ class File {
   };
 
 class FileByWord : public File {
-  public:
+  private:
     int m_fileIndex;
+  public:
     
     FileByWord(std::string title, std::string filePath, int fileIndex);
     
