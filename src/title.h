@@ -27,7 +27,7 @@ class Title {
   /* Prints both the title and a color to the terminal, 
    * takes the title string as well as an enum to determine
    * the color of the text. */
-  void printLineToScreen();
+  void printLineToScreen(std::string title, m_TextColor color);
 
 };
 
