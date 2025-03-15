@@ -3,10 +3,10 @@
 
 A fetch application to pull user statistics such as the hostname, RAM usage and Kernel version (with more in the future).
 
-### Acquiring source:
+### Downloading source:
 Clone the github repo:
 ```
-git@github.com:ConnorG512/simplefetch-cpp.git
+git clone git@github.com:ConnorG512/simplefetch-cpp.git
 ``` 
 
 ### Compiling:
