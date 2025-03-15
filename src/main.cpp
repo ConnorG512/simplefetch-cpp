@@ -4,6 +4,7 @@
 #include <ostream>
 
 #include "file.h"
+#include "title.h"
 
 int main (int argc, char *argv[]) {
   std::cout << "\033[96m---USER:\033[0m" << std::endl;
@@ -11,7 +12,8 @@ int main (int argc, char *argv[]) {
   hostname.printTitleToScreen();
   hostname.printFileToScreen();
 
-  std::cout << "\033[96m---SOFTWARE:\033[0m" << std::endl;
+  Title software {"--SOFTWARE", Title::bright_black};
+  software.printLineToScreen();
   FileByWord kernel {"Kernel:", "/proc/version", 2};
   kernel.printTitleToScreen();
   kernel.printFileToScreen();
