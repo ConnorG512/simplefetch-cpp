@@ -9,24 +9,24 @@ Clone the github repo:
 git@github.com:ConnorG512/simplefetch-cpp.git
 ``` 
 
+### Compiling:
+
 Use cd to move into the cloned directory:
 ```
 cd ./simplefetch-cpp
 ```
 
-### Compiling:
+_Compile a stripped down release build:_
 
-_Compile with debug symbols:_
 ```
-mkdir -p ./build && g++ -g ./src/*.cpp -o ./build/simplefetchcpp
+mkdir -p ./build && g++ -O2 ./src/*.cpp -o ./build/simplefetchcpp
 ```
 
 #### Or
 
-_compile a stripped down release build:_
-
+_Compile with debug symbols:_
 ```
-mkdir -p ./build && g++ -O2 ./src/*.cpp -o ./build/simplefetchcpp
+mkdir -p ./build && g++ -g ./src/*.cpp -o ./build/simplefetchcpp
 ```
 
 ### Running:
