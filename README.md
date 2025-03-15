@@ -16,7 +16,7 @@ Use cd to move into the cloned directory:
 cd ./simplefetch-cpp
 ```
 
-_Compile a stripped down release build:_
+_Compile a release build:_
 
 ```
 mkdir -p ./build && g++ -O2 ./src/*.cpp -o ./build/simplefetchcpp
