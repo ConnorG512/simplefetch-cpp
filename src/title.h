@@ -9,7 +9,10 @@
 class Title {
   private:
     std::string m_printed_text{};
+    /*ANSI escape codes for changing the color of the terminal.
+     * To be used with printLineToScreen*/
     enum m_TextColor {
+      // Extended ANSI
       bright_black = 90,
       bright_red = 91,
       bright_green = 92,
