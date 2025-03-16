@@ -11,7 +11,7 @@ int main (int argc, char *argv[]) {
   hostname.printTitleToScreen();
   hostname.printFileToScreen();
 
-  Title title_software {"SOFTWARE:", Title::bright_black};
+  Title title_software {"SOFTWARE:", Title::bright_cyan};
   title_software.printLineToScreen();
   FileByWord kernel {"Kernel:", "/proc/version", 2};
   kernel.printTitleToScreen();
