@@ -18,17 +18,19 @@ class Filesystem {
   std::uint8_t m_read_buffer_size;
   std::uint8_t m_lseek_byte_offset;
 
-  // MEMBER FUNCTIONS:
+  // PRIVATE MEMBER FUNCTIONS:
   /*
    * Read the file from the filesystem. 
    * Store the file descriptor in the 
    * file descriptor variable as part
    * of the class. If there is an error
    * in finding the file, the program 
-   * will terminate. */
+   * will terminate. File will be opened
+   * As read only.*/
   void openFileOnFilesystem();
   /*
-   * Seek to a specific offet in the given file descriptor.*/
+   * Seek to a specific offet in the given file descriptor 
+   * from the start of the file.*/
   void seekToFileOffset();
   /*
    * Read the current file using the file descriptor. 
@@ -39,6 +41,7 @@ class Filesystem {
   void closeFile();
   
   public:
+  // PUBLIC MEMBER FUNCTIONS
   // Initializer
   Filesystem(const std::string& m_file_path); 
 };
