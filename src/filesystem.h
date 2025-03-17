@@ -8,6 +8,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <ostream>
+#include <cstdio>
 
 class Filesystem {
   private:
@@ -15,7 +16,7 @@ class Filesystem {
   std::string m_file_path;
   std::int32_t m_file_descriptor;
   std::uint8_t m_read_buffer_size;
-  char m_read_buffer[255];
+  std::uint8_t m_lseek_byte_offset;
 
   // MEMBER FUNCTIONS:
   /*
@@ -26,6 +27,9 @@ class Filesystem {
    * in finding the file, the program 
    * will terminate. */
   void openFileOnFilesystem();
+  /*
+   * Seek to a specific offet in the given file descriptor.*/
+  void seekToFileOffset();
   /*
    * Read the current file using the file descriptor. 
    * */

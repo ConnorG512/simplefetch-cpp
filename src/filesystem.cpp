@@ -1,4 +1,5 @@
 #include "filesystem.h"
+#include <cstdio>
 #include <unistd.h>
 
 Filesystem::Filesystem(const std::string& file_path)
@@ -11,6 +12,9 @@ void Filesystem::openFileOnFilesystem() {
     std::cerr << "ERROR: Failed to open file: " << m_file_descriptor << " !" << std::endl;
     std::exit(1);
   }
+}
+void Filesystem::seekToFileOffset() {
+  auto new_file_offset = lseek(m_file_descriptor, m_lseek_byte_offset, SEEK_SET);  
 }
 void Filesystem::readFileFromDescriptor() {
   char read_buffer[255];
