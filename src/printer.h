@@ -1,12 +1,12 @@
-#ifndef TITLE_H
-#define TITLE_H
+#ifndef PRINTER_H
+#define PRINTER_H
 
 #include <cmath>
 #include <iostream>
 #include <ostream>
 #include <string>
 
-class Title {
+class Printer{
   std::string m_printed_text{};
   
   public:
@@ -26,7 +26,7 @@ class Title {
   TextColor m_text_color;
   // Member functions:  
   // Initializer
-  Title(const std::string& printed_text, const TextColor& text_color);
+  Printer(const std::string& printed_text, const TextColor& text_color);
 
   /* Prints both the title and a color to the terminal, 
    * takes the title string as well as an enum to determine
@@ -34,4 +34,4 @@ class Title {
   void printLineToScreen();
 };
 
-#endif // TITLE_H
+#endif // PRINTER_H
