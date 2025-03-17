@@ -16,7 +16,7 @@ class Filesystem {
   std::string m_file_path;
   std::int32_t m_file_descriptor;
   std::uint16_t m_read_buffer_size;
-  std::uint8_t m_lseek_byte_offset;
+  std::uint16_t m_lseek_byte_offset;
 
   // PRIVATE MEMBER FUNCTIONS:
   /*
@@ -43,7 +43,15 @@ class Filesystem {
   public:
   // PUBLIC MEMBER FUNCTIONS
   // Initializer
-  Filesystem(const std::string& file_path, const std::uint16_t& read_buffer_size); 
+  Filesystem(const std::string& file_path, const std::uint16_t read_buffer_size, uint16_t lseek_byte_offset); 
+  /*
+   * completes all the private functions in order:
+   * openFileOnFilesystem
+   * seekToFileOffset
+   * readFileFromDescriptor
+   * closeFile
+   * */
+  void setupFileRead();
 };
 
 #endif // FILESYSTEM_H

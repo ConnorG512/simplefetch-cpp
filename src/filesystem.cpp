@@ -1,10 +1,7 @@
 #include "filesystem.h"
-#include <cstdint>
-#include <cstdio>
-#include <unistd.h>
 
-Filesystem::Filesystem(const std::string& file_path, const std::uint16_t& read_buffer_size) 
-  : m_file_path { file_path }, m_read_buffer_size { read_buffer_size } {}
+Filesystem::Filesystem(const std::string& file_path, const std::uint16_t read_buffer_size, uint16_t lseek_byte_offset) 
+  : m_file_path { file_path }, m_read_buffer_size { read_buffer_size }, m_lseek_byte_offset { lseek_byte_offset } {}
 
 void Filesystem::openFileOnFilesystem() {
   m_file_descriptor = open(m_file_path.c_str(), O_RDONLY);  
@@ -24,4 +21,13 @@ auto Filesystem::readFileFromDescriptor() {
 }
 void Filesystem::closeFile() {
   close(m_file_descriptor);
+}
+
+// PUBLIC 
+void Filesystem::setupFileRead() {
+
+  openFileOnFilesystem();
+  seekToFileOffset();
+  readFileFromDescriptor();
+  closeFile();
 }
