@@ -20,3 +20,7 @@ void Filesystem::readFileFromDescriptor() {
   char read_buffer[255];
   auto bytes_read = read(m_file_descriptor, read_buffer, 255);
 }
+
+void Filesystem::closeFile() {
+  close(m_file_descriptor);
+}
