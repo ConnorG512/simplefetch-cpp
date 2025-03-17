@@ -1,6 +1,6 @@
 #include "title.h"
 
-Title::Title(std::string printed_text, TextColor text_color ) 
+Title::Title(const std::string& printed_text, const TextColor& text_color ) 
   : m_printed_text { printed_text }, m_text_color { text_color } {}
 
 void Title::printLineToScreen() {

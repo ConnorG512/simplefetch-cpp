@@ -26,7 +26,7 @@ class Title {
   TextColor m_text_color;
   // Member functions:  
   // Initializer
-  Title(std::string printed_text, TextColor text_color);
+  Title(const std::string& printed_text, const TextColor& text_color);
 
   /* Prints both the title and a color to the terminal, 
    * takes the title string as well as an enum to determine
