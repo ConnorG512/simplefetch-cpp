@@ -22,6 +22,7 @@ class Printer{
     bright_magenta = 95,
     bright_cyan = 96,
     bright_white = 97,
+    none,
   };
   TextColor m_text_color;
   // Member functions:  
