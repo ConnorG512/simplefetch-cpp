@@ -17,9 +17,10 @@ void Filesystem::openFileOnFilesystem() {
 void Filesystem::seekToFileOffset() {
   auto new_file_offset = lseek(m_file_descriptor, m_lseek_byte_offset, SEEK_SET);  
 }
-void Filesystem::readFileFromDescriptor() {
+auto Filesystem::readFileFromDescriptor() {
   char read_buffer[m_read_buffer_size];
   auto bytes_read = read(m_file_descriptor, read_buffer, m_read_buffer_size);
+  return bytes_read;
 }
 void Filesystem::closeFile() {
   close(m_file_descriptor);

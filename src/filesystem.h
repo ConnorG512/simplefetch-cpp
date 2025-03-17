@@ -35,7 +35,7 @@ class Filesystem {
   /*
    * Read the current file using the file descriptor. 
    * */
-  void readFileFromDescriptor();
+  auto readFileFromDescriptor();
   /*
    * Close the open file once all required functions have been called.*/
   void closeFile();
