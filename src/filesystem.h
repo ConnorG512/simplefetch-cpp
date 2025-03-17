@@ -15,7 +15,7 @@ class Filesystem {
   // MEMBER VARIABLES:
   std::string m_file_path;
   std::int32_t m_file_descriptor;
-  std::uint8_t m_read_buffer_size;
+  std::uint16_t m_read_buffer_size;
   std::uint8_t m_lseek_byte_offset;
 
   // PRIVATE MEMBER FUNCTIONS:
@@ -43,7 +43,7 @@ class Filesystem {
   public:
   // PUBLIC MEMBER FUNCTIONS
   // Initializer
-  Filesystem(const std::string& m_file_path); 
+  Filesystem(const std::string& file_path, const std::uint16_t& read_buffer_size); 
 };
 
 #endif // FILESYSTEM_H
