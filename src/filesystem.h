@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <ostream>
 #include <cstdio>
+#include <errno.h>
 
 class Filesystem {
   private:
@@ -31,27 +32,28 @@ class Filesystem {
   /*
    * Seek to a specific offet in the given file descriptor 
    * from the start of the file.*/
+  void openFileErrorChecking();
+  /*
+   * Checks to see if the file descriptor has returned a -1 value
+   * and will terminate the application if so.*/
   void seekToFileOffset();
   /*
    * Read the current file using the file descriptor. 
    * */
   auto readFileFromDescriptor();
-  /*
-   * Close the open file once all required functions have been called.*/
-  void closeFile();
   
   public:
   // PUBLIC MEMBER FUNCTIONS
   // Initializer
   Filesystem(const std::string& file_path, const std::uint16_t read_buffer_size, uint16_t lseek_byte_offset); 
   /*
-   * completes all the private functions in order:
-   * openFileOnFilesystem
-   * seekToFileOffset
-   * readFileFromDescriptor
-   * closeFile
-   * */
-  void setupFileRead();
+   * Handle the file opening and error checking in a single public function.
+   * Calls both openFileOnFilesystem and openFileErrorChecking in a single 
+   * function.*/
+  void openFile();
+  /*
+   * Close the open file once all required functions have been called.*/
+  void closeFile();
 };
 
 #endif // FILESYSTEM_H
