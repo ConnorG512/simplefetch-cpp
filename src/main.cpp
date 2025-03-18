@@ -7,7 +7,7 @@
 int main (int argc, char *argv[]) {
   Printer user {"USER: ", Printer::bright_cyan};
   user.printLineToScreen();
-  Filesystem user_fs {"/etc/hostname", 64, 0};
+  Filesystem user_fs {"/etc/hostname", 128, 0};
   user_fs.openFile();
   user_fs.readFile();
   user_fs.closeFile();
