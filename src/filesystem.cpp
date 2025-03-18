@@ -34,5 +34,6 @@ Filesystem::Filesystem(const std::string& file_path, const std::uint8_t read_buf
 }
 void Filesystem::openFile() {
   openFileOnFilesystem();
+  seekToFileOffset();
   openFileErrorChecking();
 }

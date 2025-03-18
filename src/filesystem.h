@@ -30,12 +30,10 @@ class Filesystem {
    * will terminate. File will be opened
    * As read only.*/
   void openFileOnFilesystem();
- /*
-  * Read the current file in the file descriptor.*/
-  void openFileErrorChecking();
   /*
    * Checks to see if the file descriptor has returned a -1 value
    * and will terminate the application if so.*/
+  void openFileErrorChecking();
   
   public:
   // PUBLIC MEMBER FUNCTIONS
