@@ -17,9 +17,8 @@ void Filesystem::openFileErrorChecking() {
   }
 };
 void Filesystem::readFile() {
-  char read_buffer[1024];
-  read(m_file_descriptor, read_buffer, 1024); 
-  std::cout << read_buffer << std::endl;
+  read(m_file_descriptor, m_read_buffer, m_read_buffer_size); 
+  std::cout << m_read_buffer << std::endl;
 }
 void Filesystem::seekToFileOffset() {
   auto new_file_offset = lseek(m_file_descriptor, m_lseek_byte_offset, SEEK_SET);  
@@ -27,7 +26,7 @@ void Filesystem::seekToFileOffset() {
 
 // PUBLIC 
 // INIT
-Filesystem::Filesystem(const std::string& file_path, const std::uint16_t read_buffer_size, uint16_t lseek_byte_offset) 
+Filesystem::Filesystem(const std::string& file_path, const std::uint8_t read_buffer_size, uint16_t lseek_byte_offset) 
   : m_file_path { file_path }, m_read_buffer_size { read_buffer_size }, m_lseek_byte_offset { lseek_byte_offset } {}
 
   void Filesystem::closeFile() {

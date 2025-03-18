@@ -14,10 +14,11 @@
 class Filesystem {
   private:
   // MEMBER VARIABLES:
-  std::string m_file_path;
-  std::int32_t m_file_descriptor;
-  std::uint16_t m_read_buffer_size;
-  std::uint16_t m_lseek_byte_offset;
+  std::string m_file_path; // Path to the file that you wish to read from the computer.
+  std::int32_t m_file_descriptor; // File descriptor stored to read and seek files.
+  char m_read_buffer[128]; 
+  std::uint8_t m_read_buffer_size; // Maximum number of bytes that you wish to read from the buffer.
+  std::uint16_t m_lseek_byte_offset; // Offset begin to read from the file if set.
 
   // PRIVATE MEMBER FUNCTIONS:
   /*
@@ -41,7 +42,7 @@ class Filesystem {
   public:
   // PUBLIC MEMBER FUNCTIONS
   // Initializer
-  Filesystem(const std::string& file_path, const std::uint16_t read_buffer_size, uint16_t lseek_byte_offset); 
+  Filesystem(const std::string& file_path, const std::uint8_t read_buffer_size, uint16_t lseek_byte_offset); 
   /*
    * Handle the file opening and error checking in a single public function.
    * Calls both openFileOnFilesystem and openFileErrorChecking in a single 
