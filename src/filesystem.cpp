@@ -1,4 +1,8 @@
 #include "filesystem.h"
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <unistd.h>
 
 // PRIVATE 
 void Filesystem::openFileOnFilesystem() {
@@ -11,17 +15,15 @@ void Filesystem::openFileErrorChecking() {
     std::cerr << "ERRNO: " << errno << "." << std::endl;
     std::exit(1);
   }
-  // if the file has been successfully opened
-  /*std::cout << "SUCCESS:: file opened with FD " << m_file_descriptor << std::endl;*/
 };
+void Filesystem::readFile() {
+  char read_buffer[1024];
+  read(m_file_descriptor, read_buffer, 1024); 
+  std::cout << read_buffer << std::endl;
+}
 void Filesystem::seekToFileOffset() {
   auto new_file_offset = lseek(m_file_descriptor, m_lseek_byte_offset, SEEK_SET);  
 }
-/*auto Filesystem::readFileFromDescriptor() {*/
-/*  char read_buffer[m_read_buffer_size];*/
-/*  auto bytes_read = read(m_file_descriptor, read_buffer, m_read_buffer_size);*/
-/*  return read_buffer;*/
-/*}*/
 
 // PUBLIC 
 // INIT

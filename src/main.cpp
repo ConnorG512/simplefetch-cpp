@@ -9,6 +9,8 @@ int main (int argc, char *argv[]) {
   user.printLineToScreen();
   Filesystem user_fs {"/etc/hostname", 64, 0};
   user_fs.openFile();
+  user_fs.readFile();
+  user_fs.closeFile();
   
   // Exit 
   return 0;
