@@ -30,26 +30,30 @@ class Filesystem {
    * will terminate. File will be opened
    * As read only.*/
   void openFileOnFilesystem();
-  /*
-   * Seek to a specific offet in the given file descriptor 
-   * from the start of the file.*/
+ /*
+  * Read the current file in the file descriptor.*/
   void openFileErrorChecking();
   /*
    * Checks to see if the file descriptor has returned a -1 value
    * and will terminate the application if so.*/
-  void seekToFileOffset();
   
   public:
   // PUBLIC MEMBER FUNCTIONS
   // Initializer
   Filesystem(const std::string& file_path, const std::uint8_t read_buffer_size, uint16_t lseek_byte_offset); 
+
   /*
    * Handle the file opening and error checking in a single public function.
    * Calls both openFileOnFilesystem and openFileErrorChecking in a single 
    * function.*/
   void openFile();
- /*
-  * Read the current file in the file descriptor.*/
+  /*
+   * Seek to a specific offet in the given file descriptor 
+   * from the start of the file.*/
+  void seekToFileOffset();
+  /*
+   * Read the current file and writes to m_buffer and also taking the amount of bytes
+   * to read with m_buffer_size*/
   void readFile();
   /*
    * Closes the current file descriptor.*/
