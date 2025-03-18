@@ -34,6 +34,10 @@ class Filesystem {
    * Checks to see if the file descriptor has returned a -1 value
    * and will terminate the application if so.*/
   void openFileErrorChecking();
+  /*
+   * Seek to a specific offet in the given file descriptor 
+   * from the start of the file.*/
+  void seekToFileOffset();
   
   public:
   // PUBLIC MEMBER FUNCTIONS
@@ -45,10 +49,6 @@ class Filesystem {
    * Calls both openFileOnFilesystem and openFileErrorChecking in a single 
    * function.*/
   void openFile();
-  /*
-   * Seek to a specific offet in the given file descriptor 
-   * from the start of the file.*/
-  void seekToFileOffset();
   /*
    * Read the current file and writes to m_buffer and also taking the amount of bytes
    * to read with m_buffer_size*/
