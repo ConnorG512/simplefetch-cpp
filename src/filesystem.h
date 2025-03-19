@@ -41,7 +41,7 @@ class Filesystem {
   
   public:
   // PUBLIC MEMBER FUNCTIONS
-  // Initializer
+  // Constructor
   Filesystem(const std::string& file_path, const std::uint8_t read_buffer_size, uint16_t lseek_byte_offset); 
   // Destructor
   ~Filesystem();
