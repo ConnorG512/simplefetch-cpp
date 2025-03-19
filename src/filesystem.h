@@ -31,6 +31,11 @@ class Filesystem {
    * As read only.*/
   void openFileOnFilesystem();
   /*
+   * Read the file in the file descriptor and store the result in 
+   * variable m_read_buffer 
+  */
+  void readFile();
+  /*
    * Checks to see if the file descriptor has returned a -1 value
    * and will terminate the application if so.*/
   void fileDescriptorErrorChecking();
