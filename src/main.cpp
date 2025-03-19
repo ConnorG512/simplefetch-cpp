@@ -8,9 +8,9 @@ int main (int argc, char *argv[]) {
   Printer user {"USER: ", Printer::bright_cyan};
   user.printLineToScreen();
   Filesystem user_fs {"/etc/hostname", 128, 3};
-  user_fs.openFile();
-  user_fs.readFile();
-  user_fs.closeFile();
+  /*user_fs.openFile();*/
+  /*user_fs.readFile();*/
+  /*user_fs.closeFile();*/
   
   // Exit 
   return 0;
