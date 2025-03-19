@@ -45,18 +45,6 @@ class Filesystem {
   Filesystem(const std::string& file_path, const std::uint8_t read_buffer_size, uint16_t lseek_byte_offset); 
   // Destructor
   ~Filesystem();
-  /*
-   * Handle the file opening and error checking in a single public function.
-   * Calls both openFileOnFilesystem and openFileErrorChecking in a single 
-   * function.*/
-  void openFile();
-  /*
-   * Read the current file and writes to m_buffer and also taking the amount of bytes
-   * to read with m_buffer_size*/
-  void readFile();
-  /*
-   * Gets the string read by the file.*/
-  void getterStringBuffer();
 };
 
 #endif // FILESYSTEM_H
