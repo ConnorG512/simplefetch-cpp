@@ -27,7 +27,9 @@ void Filesystem::seekToFileOffset() {
 // PUBLIC 
 // INIT
 Filesystem::Filesystem(const std::string& file_path, const std::uint8_t read_buffer_size, uint16_t lseek_byte_offset) 
-  : m_file_path { file_path }, m_read_buffer_size { read_buffer_size }, m_lseek_byte_offset { lseek_byte_offset } {}
+  : m_file_path { file_path }, m_read_buffer_size { read_buffer_size }, m_lseek_byte_offset { lseek_byte_offset } {
+
+  }
 
   void Filesystem::closeFile() {
   close(m_file_descriptor);
@@ -38,7 +40,7 @@ void Filesystem::openFile() {
   seekToFileOffset();
 }
 // TO FINISH
-char Filesystem::getterStringBuffer() {
-  return m_read_buffer;  
-}
+/*char Filesystem::getterStringBuffer() {*/
+/*  return m_read_buffer;  */
+/*}*/
 
