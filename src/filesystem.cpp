@@ -35,7 +35,9 @@ Filesystem::Filesystem(const std::string& file_path, const std::uint8_t read_buf
     readFile();
     closeFile();
   }
-
+Filesystem::~Filesystem() {
+  
+}
   void Filesystem::closeFile() {
   close(m_file_descriptor);
 }

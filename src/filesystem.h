@@ -43,7 +43,8 @@ class Filesystem {
   // PUBLIC MEMBER FUNCTIONS
   // Initializer
   Filesystem(const std::string& file_path, const std::uint8_t read_buffer_size, uint16_t lseek_byte_offset); 
-
+  // Destructor
+  ~Filesystem();
   /*
    * Handle the file opening and error checking in a single public function.
    * Calls both openFileOnFilesystem and openFileErrorChecking in a single 
