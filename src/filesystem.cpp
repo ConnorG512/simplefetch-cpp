@@ -1,8 +1,4 @@
 #include "filesystem.h"
-#include <iostream>
-#include <ostream>
-#include <string>
-#include <unistd.h>
 
 // PRIVATE 
 void Filesystem::openFileOnFilesystem() {
@@ -35,19 +31,8 @@ Filesystem::Filesystem(const std::string& file_path, const std::uint8_t read_buf
     readFile();
   }
 Filesystem::~Filesystem() {
-  closeFile();
-  
-}
-void Filesystem::closeFile() {
+  // Close the file when object has been destroyed.  
   close(m_file_descriptor);
+  std::cout << "File closed." << std::endl;
 }
-/*void Filesystem::openFile() {*/
-/*  openFileOnFilesystem();*/
-/*  openFileErrorChecking();*/
-/*  seekToFileOffset();*/
-/*}*/
-// TO FINISH
-/*char Filesystem::getterStringBuffer() {*/
-/*  return m_read_buffer;  */
-/*}*/
 

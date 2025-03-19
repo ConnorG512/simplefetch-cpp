@@ -55,9 +55,6 @@ class Filesystem {
    * to read with m_buffer_size*/
   void readFile();
   /*
-   * Closes the current file descriptor.*/
-  void closeFile();
-  /*
    * Gets the string read by the file.*/
   void getterStringBuffer();
 };
