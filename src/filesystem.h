@@ -33,7 +33,7 @@ class Filesystem {
   /*
    * Checks to see if the file descriptor has returned a -1 value
    * and will terminate the application if so.*/
-  void openFileErrorChecking();
+  void fileDescriptorErrorChecking();
   /*
    * Seek to a specific offet in the given file descriptor 
    * from the start of the file.*/

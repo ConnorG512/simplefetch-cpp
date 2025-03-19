@@ -4,10 +4,10 @@
 void Filesystem::openFileOnFilesystem() {
   m_file_descriptor = open(m_file_path.c_str(), O_RDONLY);  
 }
-void Filesystem::openFileErrorChecking() {
+void Filesystem::fileDescriptorErrorChecking() {
   // file descriptor will return -1 if there is an error. 
   if (m_file_descriptor == -1) {
-    std::cerr << "ERROR: Failed to open file: " << m_file_path << " !" << std::endl;
+    std::cerr << "ERROR: File descriptor returned -1! " << m_file_path << " !" << std::endl;
     std::cerr << "ERRNO: " << errno << "." << std::endl;
     std::exit(1);
   }
@@ -25,7 +25,7 @@ void Filesystem::seekToFileOffset() {
 Filesystem::Filesystem(const std::string& file_path, const std::uint8_t read_buffer_size, uint16_t lseek_byte_offset) 
   : m_file_path { file_path }, m_read_buffer_size { read_buffer_size }, m_lseek_byte_offset { lseek_byte_offset } {
     openFileOnFilesystem();
-    openFileErrorChecking();
+    fileDescriptorErrorChecking();
     seekToFileOffset();
     std::cout << "Loaded in constructor: File descriptor " << m_file_descriptor << std::endl;
     readFile();
