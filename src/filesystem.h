@@ -56,6 +56,9 @@ class Filesystem {
   /*
    * Closes the current file descriptor.*/
   void closeFile();
+  /*
+   * Gets the string read by the file.*/
+  void getterStringBuffer();
 };
 
 #endif // FILESYSTEM_H

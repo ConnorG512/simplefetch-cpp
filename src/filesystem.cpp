@@ -37,3 +37,8 @@ void Filesystem::openFile() {
   openFileErrorChecking();
   seekToFileOffset();
 }
+// TO FINISH
+char Filesystem::getterStringBuffer() {
+  return m_read_buffer;  
+}
+
