@@ -33,12 +33,12 @@ Filesystem::Filesystem(const std::string& file_path, const std::uint8_t read_buf
     seekToFileOffset();
     std::cout << "Loaded in constructor: File descriptor " << m_file_descriptor << std::endl;
     readFile();
-    closeFile();
   }
 Filesystem::~Filesystem() {
+  closeFile();
   
 }
-  void Filesystem::closeFile() {
+void Filesystem::closeFile() {
   close(m_file_descriptor);
 }
 /*void Filesystem::openFile() {*/
