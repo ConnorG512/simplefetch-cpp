@@ -16,9 +16,9 @@ class Filesystem {
   // MEMBER VARIABLES:
   std::string m_file_path; // Path to the file that you wish to read from the computer.
   std::int32_t m_file_descriptor; // File descriptor stored to read and seek files.
-  char m_read_buffer[128]; 
   std::uint8_t m_read_buffer_size; // Maximum number of bytes that you wish to read from the buffer.
   std::uint16_t m_lseek_byte_offset; // Offset begin to read from the file if set.
+  char m_read_buffer[128]; 
 
   // PRIVATE MEMBER FUNCTIONS:
   /*

@@ -8,7 +8,7 @@ int main (int argc, char *argv[]) {
   Printer user {"USER: ", Printer::bright_cyan};
   user.printLineToScreen();
   Filesystem user_fs {"/etc/hostname", 128, 0};
-  
+  Filesystem hello {"/home/connor/Documents/hello.txt", 6,0}; 
   // Exit 
   return 0;
 }
