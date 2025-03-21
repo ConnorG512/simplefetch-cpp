@@ -17,7 +17,7 @@ void Filesystem::fileDescriptorErrorChecking() {
 void Filesystem::readFile() {
   auto bytes_read_from_file = read(m_file_descriptor, m_read_buffer, m_read_buffer_size); 
   m_read_buffer[bytes_read_from_file] = 0;
-  std::cout << m_read_buffer << std::endl;
+  std::cout << m_read_buffer;
 }
 void Filesystem::seekToFileOffset() {
   lseek(m_file_descriptor, m_lseek_byte_offset, SEEK_SET);  
