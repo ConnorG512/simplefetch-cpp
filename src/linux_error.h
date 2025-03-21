@@ -1,5 +1,5 @@
-#ifndef FDUTILS_H
-#define FDUTILS_H
+#ifndef LINUX_ERROR_H
+#define LINUX_ERROR_H
 
 #include <iostream>
 
@@ -11,4 +11,4 @@ namespace linux_error {
   void fileDescriptorErrorChecking(int32_t error_code);
 }
 
-#endif // FDUTILS_H
+#endif // LINUX_ERROR_H
