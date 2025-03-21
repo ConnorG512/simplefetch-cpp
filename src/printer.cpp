@@ -1,7 +1,9 @@
 #include "printer.h"
 
 Printer::Printer(const std::string& printed_text, const TextColor& text_color ) 
-  : m_printed_text { printed_text }, m_text_color { text_color } {}
+  : m_printed_text { printed_text }, m_text_color { text_color } {
+    Printer::printLineToScreen();
+  }
 
 void Printer::printLineToScreen() {
   // Print with no ANSI color if the enum is set to none
