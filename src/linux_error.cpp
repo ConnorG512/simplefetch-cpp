@@ -2,7 +2,7 @@
 
 #include <errno.h>
 
-void linux_error::fileDescriptorErrorChecking(std::int32_t error_code) {
+void linux_error::fileDescriptorErrorChecking(int32_t error_code) {
   // file descriptor will return -1 if there is an error. 
   if (error_code == -1) {
     std::cerr << "ERROR: -1 returned!" << std::endl;
