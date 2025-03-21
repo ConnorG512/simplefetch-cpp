@@ -11,12 +11,6 @@
 
 int main (int argc, char *argv[]) {
   Uname uname{};
-  // std::cout << uname.getSysName() << std::endl;
-  // std::cout << uname.getVersion() << std::endl;
-  // std::cout << uname.getNodeName() << std::endl;
-  // std::cout << uname.getDomainName() << std::endl;
-  // std::cout << uname.getMachine() << std::endl;
-  // std::cout << uname.getRelease() << std::endl;
   // USER
   {
     Printer user_printer {"USER: ", Printer::bright_cyan};
@@ -24,10 +18,15 @@ int main (int argc, char *argv[]) {
     std::cout << "Uptime: ";
     Filesystem uptime_fs {"/proc/uptime", 30, 0};
   }
+  // SOFTWARE
+  {
+    Printer software_printer {"SOFTWARE: ", Printer::bright_green};
+    std::cout << "OS: " << uname.getSysName() << std::endl;
+    std::cout << "Version: " << uname.getRelease() << " " <<uname.getMachine() << std::endl;
+  }
   // HARDWARE
   {
     Printer hardware_printer {"HARDWARE: ", Printer::bright_red};
-    std::cout << "Version: " << uname.getRelease() << std::endl;
     std::cout << "Total memory: ";
     Filesystem meminfo_fs {"/proc/meminfo", 8, 16};
     std::cout << std::endl;
