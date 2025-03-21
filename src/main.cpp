@@ -3,6 +3,8 @@
 #include <iostream>
 #include <ostream>
 
+#include <sys/utsname.h>
+
 #include "filesystem.h"
 #include "printer.h"
 
