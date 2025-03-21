@@ -1,11 +1,11 @@
 #include "filesystem.h"
-#include "fd_utils.h"
+#include "linux_error.h"
 
 // PRIVATE 
 void Filesystem::openFileOnFilesystem() {
   m_file_descriptor = open(m_file_path.c_str(), O_RDONLY);  
   // Call error checking if FD is -1 
-  fd_utils::fileDescriptorErrorChecking(m_file_descriptor, m_file_path);
+  linux_error::fileDescriptorErrorChecking(m_file_descriptor, m_file_path);
 }
 void Filesystem::readFile() {
   auto bytes_read_from_file = read(m_file_descriptor, m_read_buffer, m_read_buffer_size); 

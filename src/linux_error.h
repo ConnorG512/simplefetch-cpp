@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-namespace fd_utils {
+namespace linux_error {
   /*
    * Checks to see if the file descriptor has returned a -1 value
    * and will terminate the application if so.*/
