@@ -11,6 +11,8 @@
 #include <cstdio>
 #include <errno.h>
 
+#include "fd_utils.h"
+
 class Filesystem {
   private:
   // MEMBER VARIABLES:
@@ -35,10 +37,6 @@ class Filesystem {
    * variable m_read_buffer 
   */
   void readFile();
-  /*
-   * Checks to see if the file descriptor has returned a -1 value
-   * and will terminate the application if so.*/
-  void fileDescriptorErrorChecking();
   /*
    * Seek to a specific offet in the given file descriptor 
    * from the start of the file.*/
