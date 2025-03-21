@@ -7,12 +7,12 @@ class Uname {
   public:
     Uname();
     // Getters
-    auto getVersion();
-    auto getMachine();
-    auto getRelease();
-    auto getDomainName();
-    auto getNodeName();
-    auto getSysName();
+    std::string getVersion();
+    std::string getMachine();
+    std::string getRelease();
+    std::string getDomainName();
+    std::string getNodeName();
+    std::string getSysName();
 
   private:
   utsname m_uname_buffer;
