@@ -7,9 +7,13 @@
 
 #include "filesystem.h"
 #include "printer.h"
+#include "uname.h"
 
 int main (int argc, char *argv[]) {
   // USER
+  {
+    Uname uname{};
+  }
   {
     Printer user_printer {"USER: ", Printer::bright_cyan};
     std::cout << "Hostname: ";
