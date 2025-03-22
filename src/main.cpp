@@ -3,19 +3,19 @@
 #include <iostream>
 #include <ostream>
 
-#include <sys/utsname.h>
-#include <unistd.h>
 #include "filesystem.h"
 #include "printer.h"
 #include "uname.h"
+#include "user.h"
 
 int main (int argc, char *argv[]) {
   Uname uname{};
   // USER
   {
     Printer user_printer {"USER: ", Printer::bright_cyan};
+    User user_stat {};
     std::cout << "Hostname: " << uname.getNodeName() << std::endl;
-    std::cout << "UserID: " << getuid() << std::endl;
+    std::cout << "UserID: " << user_stat.getUid() << std::endl;
     std::cout << "Uptime: ";
     Filesystem uptime_fs {"/proc/uptime", 30, 0};
   }
