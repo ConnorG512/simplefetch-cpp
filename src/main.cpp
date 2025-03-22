@@ -4,7 +4,7 @@
 #include <ostream>
 
 #include <sys/utsname.h>
-
+#include <unistd.h>
 #include "filesystem.h"
 #include "printer.h"
 #include "uname.h"
@@ -15,6 +15,7 @@ int main (int argc, char *argv[]) {
   {
     Printer user_printer {"USER: ", Printer::bright_cyan};
     std::cout << "Hostname: " << uname.getNodeName() << std::endl;
+    std::cout << "UserID: " << getuid() << std::endl;
     std::cout << "Uptime: ";
     Filesystem uptime_fs {"/proc/uptime", 30, 0};
   }
