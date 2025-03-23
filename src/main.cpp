@@ -32,10 +32,6 @@ int main (int argc, char *argv[]) {
     Filesystem meminfo_fs {"/proc/meminfo", 8, 16};
     std::cout << std::endl;
   }
-  // NETWORK
-  {
-    Printer network_printer {"NETWORK: ", Printer::bright_magenta};
-  }
   // Exit 
   return 0;
 }
