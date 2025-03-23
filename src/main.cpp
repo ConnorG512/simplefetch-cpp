@@ -1,32 +1,37 @@
 #include <cstdio>
 #include <cstdlib>
+#include <iostream>
+#include <ostream>
 
-#include "file.h"
-#include "title.h"
+#include "filesystem.h"
+#include "printer.h"
+#include "uname.h"
+#include "user.h"
 
 int main (int argc, char *argv[]) {
-  Title title_hostname {"USER:", Title::bright_green};
-  title_hostname.printLineToScreen();
-  File hostname {"Hostname:", "/etc/hostname"};
-  hostname.printTitleToScreen();
-  hostname.printFileToScreen();
-
-  Title title_software {"SOFTWARE:", Title::bright_cyan};
-  title_software.printLineToScreen();
-  FileByWord kernel {"Kernel:", "/proc/version", 2};
-  kernel.printTitleToScreen();
-  kernel.printFileToScreen();
-
-  Title title_hardware {"HARDWARE:", Title::bright_magenta};
-  title_hardware.printLineToScreen();
-  FileByWord memTotal {"Memory Total (kB):", "/proc/meminfo", 1};
-  memTotal.printTitleToScreen();
-  memTotal.printFileToScreen();
-
-  FileByWord memFree {"Memory Free (kB):", "/proc/meminfo", 4};
-  memFree.printTitleToScreen();
-  memFree.printFileToScreen();
-
+  Uname uname{};
+  // USER
+  {
+    Printer user_printer {"USER: ", Printer::bright_cyan};
+    User user_stat {};
+    std::cout << "Hostname: " << uname.getNodeName() << std::endl;
+    std::cout << "UserID: " << user_stat.getUid() << std::endl;
+    std::cout << "Uptime: ";
+    Filesystem uptime_fs {"/proc/uptime", 30, 0};
+  }
+  // SOFTWARE
+  {
+    Printer software_printer {"SOFTWARE: ", Printer::bright_green};
+    std::cout << "OS: " << uname.getSysName() << std::endl;
+    std::cout << "Version: " << uname.getRelease() << " " <<uname.getMachine() << std::endl;
+  }
+  // HARDWARE
+  {
+    Printer hardware_printer {"HARDWARE: ", Printer::bright_red};
+    std::cout << "Total memory: ";
+    Filesystem meminfo_fs {"/proc/meminfo", 8, 16};
+    std::cout << std::endl;
+  }
   // Exit 
   return 0;
 }
